@@ -34,14 +34,15 @@ class Router
 
     public function render(): void
     {
+
         if (
-            isset($GLOBALS['routes'][$_SERVER['REQUEST_URI']]) 
-            && isset($GLOBALS['routes'][$_SERVER['REQUEST_URI']]['method']) 
-            && $GLOBALS['routes'][$_SERVER['REQUEST_URI']]['method'] == strtolower($_SERVER['REQUEST_METHOD'])
+            isset($GLOBALS['routes'][$_SERVER['REDIRECT_URL']]) 
+            && isset($GLOBALS['routes'][$_SERVER['REDIRECT_URL']]['method']) 
+            && $GLOBALS['routes'][$_SERVER['REDIRECT_URL']]['method'] == strtolower($_SERVER['REQUEST_METHOD'])
         ) {
-            include($GLOBALS['routes'][$_SERVER['REQUEST_URI']]['controller'] . '.php');
-            $controller = new $GLOBALS['routes'][$_SERVER['REQUEST_URI']]['controller'];
-            echo $controller->{$GLOBALS['routes'][$_SERVER['REQUEST_URI']]['function']}();
+            include($GLOBALS['routes'][$_SERVER['REDIRECT_URL']]['controller'] . '.php');
+            $controller = new $GLOBALS['routes'][$_SERVER['REDIRECT_URL']]['controller'];
+            echo $controller->{$GLOBALS['routes'][$_SERVER['REDIRECT_URL']]['function']}();
         } else {
             echo "Page not found";
         }

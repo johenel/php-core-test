@@ -2,6 +2,7 @@
 
 require_once('vendor/autoload.php');
 use Illuminate\Support;
+use Tightenco\Collect\Support\Collection;
 
 // global connection object
 global $mysqli_db;
