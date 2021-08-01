@@ -1,8 +1,6 @@
 <?php 
 namespace app\Http\Models;
 
-include('app/Http/Models/Model.php');
-
 class Roster extends Model
 {
     protected $table = 'roster';

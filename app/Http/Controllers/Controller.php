@@ -2,6 +2,8 @@
 
 namespace app\Http\Controllers; 
 
+include('app/Http/Models/Model.php');
+
 class Controller 
 {
     protected $request;

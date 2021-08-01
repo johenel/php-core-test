@@ -1,8 +1,6 @@
 <?php 
 namespace app\Http\Models;
 
-include('app/Http/Models/Model.php');
-
 class Team extends Model
 {
     protected $table = 'team';
