@@ -11,9 +11,10 @@ class Controller
     public function __construct()
     {
         $request = collect($_REQUEST);
+        global $mysqli_db;
         
         foreach ($request as $key => $value) {
-            $request[$key] = strip_tags($value);
+            $request[$key] = $mysqli_db->real_escape_string(strip_tags($value));
         }
 
         $this->request = $request;
